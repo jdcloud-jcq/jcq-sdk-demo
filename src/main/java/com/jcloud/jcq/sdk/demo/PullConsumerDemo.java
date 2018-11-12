@@ -58,14 +58,14 @@ public class PullConsumerDemo {
 
         // 同步拉取消息, 当需要指定tag作为过滤条件时，第二个参数填充具体的filterExpression
         PullResult pullResult = pullConsumer.pullMessage(TOPIC, null);
-        logger.info("Sync pullResult.resultCode:{}, pullResult.ackIndex, pullResult.messages:{}",
+        logger.info("Sync pullResult.resultCode:{}, pullResult.ackIndex:{}, pullResult.messages:{}",
                 pullResult.getResultCode(), pullResult.getAckIndex(), pullResult.getMessages());
 
         // 异步拉取消息,当需要指定tag作为过滤条件时，第二个参数填充具体的filterExpression
         pullConsumer.pullMessageAsync(TOPIC, null, new AsyncPullCallback() {
             @Override
             public void onResult(PullResult pullResult) {
-                logger.info("Async pullResult.resultCode:{}, pullResult.ackIndex, pullResult.messages:{}",
+                logger.info("Async pullResult.resultCode:{}, pullResult.ackIndex:{}, pullResult.messages:{}",
                         pullResult.getResultCode(), pullResult.getAckIndex(), pullResult.getMessages());
             }
 
@@ -76,13 +76,13 @@ public class PullConsumerDemo {
 
         // 同步ack消息
         AckResult ackResult = pullConsumer.ackMessage(TOPIC, pullResult.getAckIndex(), AckAction.SUCCESS);
-        logger.info("Sync ackResult:{}", ackResult);
+        logger.info("Sync ackResult:{}", ackResult.getResultCode());
 
         // 异步ack消息
         pullConsumer.ackMessageAsync(TOPIC, pullResult.getAckIndex(), AckAction.SUCCESS, new AsyncAckCallback() {
             @Override
             public void onResult(AckResult ackResult) {
-                logger.info("Async ackResult:{}", ackResult);
+                logger.info("Async ackResult:{}", ackResult.getResultCode());
             }
 
             @Override
