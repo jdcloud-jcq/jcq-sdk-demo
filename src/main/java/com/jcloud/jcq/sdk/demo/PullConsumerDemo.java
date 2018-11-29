@@ -54,7 +54,7 @@ public class PullConsumerDemo {
         // 创建消费过滤条件，如果需要
         FilterExpression filterExpression = new FilterExpression();
         filterExpression.setExpressionType(FilterExpression.ExpressionType.TAG);
-        filterExpression.setExpression("TAG1,TAG2");
+        filterExpression.setExpression("TAG1");
 
         // 同步拉取消息, 当需要指定tag作为过滤条件时，第二个参数填充具体的filterExpression
         PullResult pullResult = pullConsumer.pullMessage(TOPIC, null);
