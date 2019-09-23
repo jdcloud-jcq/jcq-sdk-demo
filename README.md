@@ -1,4 +1,4 @@
-# 消息队列 JCQ Java demo示例 #
+# 消息队列JCQ Java SDK使用示例 #
 
 # 环境准备 #
 请确保已经安装了 JDK 环境, JCQ Java SDK适用于jdk7及以上版本。
