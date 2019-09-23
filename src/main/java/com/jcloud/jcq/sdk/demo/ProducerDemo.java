@@ -59,7 +59,7 @@ public class ProducerDemo {
         message1.setBody(("this is message1 boy").getBytes());
 
         // 设置message tag属性, 如有需要
-        message.getProperties().put(MessageConstants.PROPERTY_TAGS, "TAG1,TAG2");
+        message.getProperties().put(MessageConstants.PROPERTY_TAGS, "TAG1");
 
         // 设置message 延迟投递属性(单位second)，如有需要
         message.getProperties().put(MessageConstants.PROPERTY_DELAY_TIME, "1000");

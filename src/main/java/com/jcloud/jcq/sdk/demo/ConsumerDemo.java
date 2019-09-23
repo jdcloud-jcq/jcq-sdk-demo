@@ -52,7 +52,7 @@ public class ConsumerDemo {
         // 创建消费过滤条件，如果需要
         FilterExpression filterExpression = new FilterExpression();
         filterExpression.setExpressionType(FilterExpression.ExpressionType.TAG);
-        filterExpression.setExpression("TAG1,TAG2");
+        filterExpression.setExpression("TAG1");
 
         // 订阅topic，有过滤条件
         consumer.subscribeTopic(TOPIC, new MessageListener() {

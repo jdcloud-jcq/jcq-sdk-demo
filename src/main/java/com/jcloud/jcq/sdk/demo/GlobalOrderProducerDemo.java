@@ -1,5 +1,6 @@
 package com.jcloud.jcq.sdk.demo;
 
+import com.jcloud.jcq.common.constants.MessageConstants;
 import com.jcloud.jcq.protocol.Message;
 import com.jcloud.jcq.sdk.JCQClientFactory;
 import com.jcloud.jcq.sdk.auth.UserCredential;
@@ -47,13 +48,16 @@ public class GlobalOrderProducerDemo {
         // 开启producer
         globalOrderProducer.start();
 
-        // 创建message, 全局顺序消息不支持tag及延迟投递属性设置
+        // 创建message, 全局顺序消息不支持延迟投递属性设置
         Message message = new Message();
         message.setTopic(TOPIC);
         message.setBody(("this is message boy").getBytes());
         Message message1 = new Message();
         message1.setTopic(TOPIC);
         message1.setBody(("this is message1 boy").getBytes());
+
+        // 设置message tag属性, 如有需要
+        message.getProperties().put(MessageConstants.PROPERTY_TAGS, "TAG1");
 
         // 同步发送单条消息
         SendResult sendResult = globalOrderProducer.sendMessage(message);
