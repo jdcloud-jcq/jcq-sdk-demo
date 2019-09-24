@@ -33,7 +33,7 @@ public class ProducerDemo {
     /**
      * 元数据服务器地址
      */
-    private static final String META_SERVER_ADDRESS = "192.168.166.57:18888";
+    private static final String META_SERVER_ADDRESS = "127.0.0.1:18888";
     /**
      * topic名称
      */
